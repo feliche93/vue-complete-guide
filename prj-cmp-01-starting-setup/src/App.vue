@@ -7,9 +7,6 @@
             Description: {{ resource.description }}
             Link: <a :href="resource.link">{{ resource.link }}</a>
         </learning-resource>
-        <li >
-
-        </li>
     </ul>
 </template>
 
