@@ -1,39 +1,20 @@
 <template>
-    <ul>
-        <learning-resource
-        v-for="resource in storedResources" :key="resource.id"
-        >
-          Title: {{ resource.title }}
-            Description: {{ resource.description }}
-            Link: <a :href="resource.link">{{ resource.link }}</a>
-        </learning-resource>
-    </ul>
+  <div>
+    <the-header title="Vue Learning Resource"></the-header>
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <the-resources></the-resources>
+    </div>
+  </div>
 </template>
 
 <script>
-import LearningResource from './components/learning-resources/LearningResource.vue'
+import TheHeader from './components/layouts/TheHeader.vue';
+import TheResources from './components/learning-resources/TheResource.vue'
 
 export default {
-    components: {
-        LearningResource
-    },
-    data() {
-        return {
-            storedResources: [
-                {
-                    id: 'official-guide',
-                    title: 'Official Guide',
-                    description: 'The official Vue.js documentation.',
-                    link: 'https://vuejs.org/'
-                },
-                {
-                    id: 'google',
-                    title: 'Google',
-                    description: 'Google all your resources.',
-                    link: 'https://www.google.com/'
-                },
-            ]
-        }
-    },
-}
+  components: {
+    TheHeader,
+    TheResources
+  },
+};
 </script>
