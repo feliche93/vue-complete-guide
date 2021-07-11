@@ -10,7 +10,7 @@
         </li>
         <li>
           <router-link to="/cart">Cart</router-link>
-          <base-badge mode="elegant">{{ quantity }}</base-badge>
+          <base-badge mode="elegant">{{ cartQuantity }}</base-badge>
         </li>
         <li v-if="isLoggedIn">
           <router-link to="/admin">Admin</router-link>
@@ -25,11 +25,22 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
-
 export default {
   computed: {
-    ...mapGetters({ quantity: 'cart/quantity'})
+    cartQuantity() {
+      return this.$store.getters['cart/quantity'];
+    },
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    }
+  },
+  methods: {
+    login() {
+      this.$store.dispatch('login');
+    },
+    logout() {
+      this.$store.dispatch('logout');
+    }
   }
 };
 </script>

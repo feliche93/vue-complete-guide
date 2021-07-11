@@ -24,7 +24,7 @@ export default {
   methods: {
     addToCart() {
       this.$store.dispatch('cart/addToCart', {
-        id: this.id
+        id: this.id,
       });
     },
   },
